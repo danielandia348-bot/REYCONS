@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refycons | Reformas y Construcción en Ejea de los Caballeros</title>
+    
+    <!-- Fuentes Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* VARIABLES DE ESTILO Y RESET */
+        :root {
+            --primary: #f26522; /* Naranja corporativo */
+            --primary-dark: #d44d0c;
+            --secondary: #1a252f; /* Azul oscuro elegante */
+            --light-bg: #f8f9fa;
+            --gray-text: #555555;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #333;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVEGACIÓN */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background-color: var(--primary);
+            color: #fff !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            box-shadow: 0 4px 15px rgba(242, 101, 34, 0.3);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.75)), 
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-badge {
+            background: rgba(242, 101, 34, 0.2);
+            border: 1px solid var(--primary);
+            color: #ffa575;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            color: #e2e8f0;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(242, 101, 34, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #ffffff;
+            padding: 0.85rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* BARRA DE ESTADÍSTICAS */
+        .stats-bar {
+            background-color: #ffffff;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* SECCIONES ESTÁNDAR */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        /* SOBRE NOSOTROS */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--gray-text);
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .feature-list i {
+            color: var(--primary);
+        }
+
+        /* SERVICIOS */
+        .services-wrapper {
+            background-color: var(--light-bg);
+            padding: 6rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(242, 101, 34, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* UBICACIÓN Y MAPA */
+        .location-section {
+            background-color: #ffffff;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2.5rem;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .location-details {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--light-bg);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .info-text p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        .map-container {
+            width: 100%;
+            min-height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* FORMULARIO DE CONTACTO */
+        .contact-section {
+            background-color: var(--light-bg);
+            padding: 6rem 0;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 3.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, 
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(242, 101, 34, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 130px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--secondary);
+            color: #ffffff;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-col p {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-menu {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .contact-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-helmet-safety"></i> REFY<span>CONS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Empresa</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto" class="nav-btn">Pedir Presupuesto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Ejea de los Caballeros y Las Cinco Villas</span>
+            <h1>Construimos y Reformamos Tus Ideas con Calidad</h1>
+            <p>Especialistas en obra nueva, reformas integrales, acondicionamiento de locales y rehabilitación de edificios con la máxima garantía técnica.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn-primary">Solicitar Presupuesto</a>
+                <a href="#ubicacion" class="btn-secondary"><i class="fa-solid fa-location-dot"></i> Ver Dónde Estamos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTADÍSTICAS / LOGROS -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>15+</h3>
+            <p>Años de Experiencia</p>
+        </div>
+        <div class="stat-item">
+            <h3>250+</h3>
+            <p>Obras Realizadas</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Compromiso en Plazos</p>
+        </div>
+    </div>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80" alt="Obra de Refycons en Ejea">
+            </div>
+            <div class="about-text">
+                <div class="section-subtitle">Sobre Nosotros</div>
+                <h3>Tu empresa de confianza en Ejea de los Caballeros</h3>
+                <p><strong>Refycons</strong> es una empresa constructora referente en Ejea de los Caballeros y la comarca de Las Cinco Villas. Nos dedicamos a ejecutar proyectos de albañilería, obras integrales y rehabilitación con un trato cercano y profesional.</p>
+                <p>Contamos con un equipo altamente cualificado capaz de llevar a cabo desde pequeñas reformas residenciales hasta grandes estructuras y promociones completas.</p>
+                
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Gestión integral de permisos y licencias.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Materiales sostenibles de primera calidad.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Presupuestos detallados sin sorpresas.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <div class="services-wrapper" id="servicios">
+        <div class="section-header">
+            <div class="section-subtitle">Qué Hacemos</div>
+            <h2 class="section-title">Servicios Especializados</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                <h3>Construcción Residencial</h3>
+                <p>Edificación de viviendas unifamiliares, chalets y bloques residenciales a medida adaptados a la normativa energética actual.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-hammer"></i></div>
+                <h3>Reformas Integrales</h3>
+                <p>Renovación completa de pisos, cocinas y baños. Optimizamos espacios con acabados modernos y funcionales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+                <h3>Rehabilitación y Fachadas</h3>
+                <p>Restauración de fachadas, cubiertas, tejados y adecuación de estructuras antiguas conservando su esencia.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+                <h3>Locales e Industria</h3>
+                <p>Acondicionamiento de locales comerciales, naves industriales y reformas para empresas en polígonos de la zona.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- UBICACIÓN Y MAPA INTERACTIVO DE EJEA -->
+    <section id="ubicacion" class="location-section">
+        <div class="section-header">
+            <div class="section-subtitle">Dónde Encontrarnos</div>
+            <h2 class="section-title">Ubicación en Ejea de los Caballeros</h2>
+        </div>
+        
+        <div class="location-grid">
+            <div class="location-details">
+                <div class="info-box">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="info-text">
+                        <h4>Dirección Social y Local</h4>
+                        <p>Calle Libertad, 16 - Local<br>50600 Ejea de los Caballeros (Zaragoza)</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="info-text">
+                        <h4>Teléfono de Contacto</h4>
+                        <p>976 67 78 43</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="info-text">
+                        <h4>Correo Electrónico</h4>
+                        <p>contacto@refycons.es</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="info-text">
+                        <h4>Horario de Atención</h4>
+                        <p>Lunes a Viernes: 8:00 - 13:00 / 15:00 - 19:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa embebido dinámico centrado en Ejea de los Caballeros -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962.336440231571!2d-1.1396825234731776!3d42.12163907121544!2m3!1f0!f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd58319e34e5db8b%3A0xa19395f87b8f0412!2sCalle%20Libertad%2C%2016%2C%2050600%20Ejea%20de%20los%20Caballeros%2C%20Zaragoza!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <div class="contact-section" id="contacto">
+        <div class="section-header">
+            <div class="section-subtitle">Presupuesto Sin Compromiso</div>
+            <h2 class="section-title">Cuéntanos Tu Proyecto</h2>
+        </div>
+        <div class="contact-card">
+            <form action="#" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" placeholder="Ej. 600 000 000" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de Proyecto</label>
+                        <select required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="reforma">Reforma Integral</option>
+                            <option value="obra-nueva">Obra Nueva</option>
+                            <option value="fachada">Rehabilitación / Fachadas</option>
+                            <option value="otro">Otro tipo de trabajo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Detalles de la consulta</label>
+                    <textarea placeholder="Cuéntanos brevemente qué necesitas hacer, ubicación aproximada, metros cuadrados, etc." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; font-size: 1rem;">
+                    Enviar Solicitud
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>REFYCONS EJEA</h4>
+                <p>Empresa especializada en construcción, obra civil, reformas y mantenimiento de inmuebles en Ejea de los Caballeros y provincia de Zaragoza.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Empresa</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#ubicacion">Ubicación y Mapa</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Directo</h4>
+                <p><i class="fa-solid fa-phone" style="color:var(--primary)"></i> 976 67 78 43</p>
+                <p><i class="fa-solid fa-location-dot" style="color:var(--primary)"></i> Calle Libertad, 16, Ejea de los Caballeros</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Refycons Ejea 2018 S.L. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
